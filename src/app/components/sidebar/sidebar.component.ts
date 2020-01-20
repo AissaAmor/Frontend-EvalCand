@@ -34,12 +34,6 @@ export const ROUTES: RouteInfo[] = [
     title: "Typography",
     icon: "text_caps-small",
     class: ""
-  },
-  {
-    path: "/upgrade",
-    title: "Upgrade to PRO",
-    icon: "objects_spaceship",
-    class: "active active-pro"
   }
 ];
 
