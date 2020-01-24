@@ -1,24 +1,22 @@
 import { Component, OnInit } from "@angular/core";
 import { FormGroup, FormBuilder, Validators } from "@angular/forms";
-// import { registerEscClick } from "Angular-Bootstrap-with-Material-Design/projects/angular-bootstrap-md/src/lib/free/utilities";
 
 @Component({
-  selector: "app-coach-profil",
-  templateUrl: "./coach-profil.component.html",
-  styleUrls: ["./coach-profil.component.css"]
+  selector: "app-ajout-coach",
+  templateUrl: "./ajout-coach.component.html",
+  styleUrls: ["./ajout-coach.component.css"]
 })
-export class CoachProfilComponent implements OnInit {
+export class AjoutCoachComponent implements OnInit {
   registerForm: FormGroup;
-  submitted = false;
-
+  submitted;
   constructor(private formBuilder: FormBuilder) {}
-
   ngOnInit() {
     this.registerForm = this.formBuilder.group({
+      username: ["", [Validators.required, Validators.minLength(8)]],
+      password: ["", [Validators.required, Validators.minLength(8)]],
       nom: ["", [Validators.required, Validators.minLength(8)]],
       prenom: ["", [Validators.required, Validators.minLength(8)]],
       email: ["", [Validators.required, Validators.email]],
-      specialite: ["", [Validators.required]],
       about: ["", [Validators.required]]
     });
   }

@@ -21,6 +21,12 @@ export const ROUTES: RouteInfo[] = [
     class: ""
   },
   {
+    path: "/ajout-coach",
+    title: "Ajout Coach",
+    icon: "design_bullet-list-67",
+    class: ""
+  },
+  {
     path: "/table-list",
     title: "Table List",
     icon: "design_bullet-list-67",
