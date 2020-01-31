@@ -46,6 +46,10 @@ import { ajoutCandidatComponent } from "./ajoutCandidat/ajoutCandidat.component"
 import { SignInComponent } from "./sign-in/sign-in.component";
 import { AjoutEvalComponent } from "./ajout-eval/ajout-eval.component";
 
+import { ProjetComponent } from "./typeEval/projet/projet.component";
+import { LanguageComponent } from "./typeEval/qcm/language.component";
+import { CodageComponent } from "./typeEval/codage/codage.component";
+
 @NgModule({
   imports: [
     BrowserModule,
@@ -92,7 +96,10 @@ import { AjoutEvalComponent } from "./ajout-eval/ajout-eval.component";
     listCandidatComponent,
     QRComponent,
     ajoutCandidatComponent,
-    SignInComponent
+    SignInComponent,
+    ProjetComponent,
+    LanguageComponent,
+    CodageComponent
   ],
   providers: [MatDatepickerModule],
   bootstrap: [AppComponent],
