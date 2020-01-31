@@ -8,6 +8,7 @@ import { CoachProfilComponent } from './coach-profil/coach-profil.component';
 import { TableListComponent } from './table-list/table-list.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { SidebarComponent } from './components/sidebar/sidebar.component';
+import { QRComponent } from './typeEval/qr/qr.component';
 
 
 const routes: Routes =[
@@ -16,7 +17,8 @@ const routes: Routes =[
   { path: 'ajouter-Eval', component: AjoutEvalComponent},
   { path: 'ajout-Candidat', component: UserProfileComponent},
   { path: 'coach-profile', component: CoachProfilComponent},
-  { path: 'table-list', component: TableListComponent}
+  { path: 'table-list', component: TableListComponent},
+  { path: 'QR', component: QRComponent}
 ];
 
 @NgModule({
