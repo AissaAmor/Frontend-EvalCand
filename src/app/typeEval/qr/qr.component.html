@@ -9,10 +9,12 @@
     </div>
     <div class="card-body">
       <form [formGroup]="tp">
-      <div class="row" *ngFor="let control of tp['controls'].skills['controls']; let i = index;">
+        <div class="row" *ngFor="let control of tp['controls'].skills['controls']; let i = index;">
+          
           <div class="col-md-9 ">
-            <div formArrayName="skills" >
+            <div formArrayName="skills">
               <div [formGroupName]="i">
+                <label><b>Enoncé {{i+1}}</b></label>
                 <mat-form-field>
                   <textarea matInput placeholder="Ajoutez votre énoncé" formControlName="question"></textarea>
                   <mat-error *ngIf="tp['controls'].skills['controls'][i].hasError('required', 'question')">question
@@ -23,14 +25,16 @@
             </div>
           </div>
           <div class="col-md-3">
-            <button (click)="removeSkill(i)" mat-raised-button color="warn">Delete</button>&nbsp;&nbsp;
-            <button (click)="addQR()" mat-raised-button color="primary">ADD</button>
+            <!-- <i class="material-icons">
+              delete
+            </i> -->
+            <i (click)="removeSkill(i)"  class="material-icons">delete</i>&nbsp;&nbsp;            
+            <i (click)="addQR()" mat-raised-button color="primary" class="material-icons">add_box</i>
           </div>
         </div>
       </form>
       <div class="row">
-        <div class="col-md-6">
-        </div>
+        <div class="col-md-6"></div>        
         <div class="col-md-6">
           <button mat-raised-button color="primary" (click)="enregistrer()">Enregistrer</button>
         </div>
