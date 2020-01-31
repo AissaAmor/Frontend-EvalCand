@@ -1,5 +1,5 @@
 import { Component, OnInit } from "@angular/core";
-
+import { CoachService } from "../../Services/coach.service";
 declare interface RouteInfo {
   path: string;
   title: string;
@@ -28,11 +28,24 @@ export const ROUTES: RouteInfo[] = [
     class: ""
   },
   {
-    path: "/table-list",
-    title: "Table List",
+    path: "/list-candidat",
+    title: "List Candidats",
     icon: "design_bullet-list-67",
     class: ""
   }
+  // {
+  //   path: "/sign-out",
+  //   title: "Sign Out",
+  //   icon: "design_bullet-list-67",
+  //   class: ""
+  // }
+  // {
+  //   path: "/sign-in",
+  //   title: "Sign in",
+  //   icon: "design_bullet-list-67",
+  //   class: ""
+  // }
+  // {
 ];
 
 @Component({
@@ -42,12 +55,20 @@ export const ROUTES: RouteInfo[] = [
 })
 export class SidebarComponent implements OnInit {
   menuItems: any[];
-
-  constructor() {}
+  tokenValue: any;
+  invalidLogin = false;
+  constructor(private cService: CoachService) {}
 
   ngOnInit() {
     this.menuItems = ROUTES.filter(menuItem => menuItem);
+    // this.tokenValue = localStorage.getItem("token");
+    // console.log(this.tokenValue);
   }
+  // isConnected() {
+  //   if (this.cService.iscoachLoggedIn()) {
+  //     return true;
+  //   }
+  // }
   isMobileMenu() {
     if (window.innerWidth > 991) {
       return false;
