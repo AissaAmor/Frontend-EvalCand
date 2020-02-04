@@ -45,6 +45,7 @@ import { listCandidatComponent } from "./listCandidat/listCandidat.component";
 import { ajoutCandidatComponent } from "./ajoutCandidat/ajoutCandidat.component";
 import { SignInComponent } from "./sign-in/sign-in.component";
 import { AjoutEvalComponent } from "./ajout-eval/ajout-eval.component";
+import { StructureComponent } from "./structure/structure.component";
 
 import { ProjetComponent } from "./typeEval/projet/projet.component";
 import { LanguageComponent } from "./typeEval/qcm/language.component";
@@ -99,6 +100,7 @@ import { CodageComponent } from "./typeEval/codage/codage.component";
     SignInComponent,
     ProjetComponent,
     LanguageComponent,
+    StructureComponent,
     CodageComponent
   ],
   providers: [MatDatepickerModule],
