@@ -9,6 +9,7 @@ import {MatFormFieldModule} from '@angular/material/form-field';
   styleUrls: ['./qr.component.css']
 })
 export class QRComponent implements OnInit {
+ 
 skills: FormArray;
 @Input()object: any;
 tp = new FormGroup({
@@ -52,12 +53,14 @@ tp = new FormGroup({
 
   enregistrer(){
     const obj = {
-      Titre: new FormControl('', [Validators.required]),
-      Etat: new FormControl('Activée', [Validators.required]),
-      Duree: new FormControl(0, [Validators.required]),
+    
       qr: this.tp.value.skills,
-      
+      Titre: this.object.value.Titre,
+      Etat: this.object.value.Etat,
+      Duree:this.object.value.Duree,
+
     }
     console.log(this.object.value);
+    
   }
 }

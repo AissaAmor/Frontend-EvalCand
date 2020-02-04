@@ -24,7 +24,7 @@ import { DashboardComponent } from './dashboard/dashboard.component';
 import { TableListComponent } from './table-list/table-list.component';
 import { UserProfileComponent } from './user-profile/user-profile.component';
 import { ProjetComponent } from './typeEval/projet/projet.component';
-import { LanguageComponent } from './typeEval/qcm/language.component';
+import { QcmComponent } from './typeEval/qcm/qcm.component';
 import { CodageComponent } from './typeEval/codage/codage.component';
 
 @NgModule({
@@ -63,7 +63,7 @@ import { CodageComponent } from './typeEval/codage/codage.component';
     QRComponent,
     UserProfileComponent,
     ProjetComponent,
-    LanguageComponent,
+    QcmComponent,
     CodageComponent
   ],
   providers: [],

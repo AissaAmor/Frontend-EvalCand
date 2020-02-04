@@ -26,11 +26,15 @@ chosenType: string;
       Etat: new FormControl('Activée', [Validators.required]),
       Duree: new FormControl(0, [Validators.required]),
     });
-    console.log(this.evalForm.value)
+    console.log(this.evalForm.value);
   }
   onChange(event){
     this.chosenType = event.value;
+    
   }
-
+  getRetour(event) {
+    console.log(event)
+    this.chosenType = '';
+  }
    
 }

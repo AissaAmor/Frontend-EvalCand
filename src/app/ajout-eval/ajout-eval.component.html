@@ -58,10 +58,10 @@
   <app-qr [object] = "evalForm.value"></app-qr>  
 </div>
 <div *ngIf="chosenType === 'QCM'">
-  <app-language></app-language>
+  <app-qcm></app-qcm>
 </div>
 <div *ngIf="chosenType === 'Projet'">
-  <app-projet></app-projet>
+  <app-projet (retour)="getRetour($event)" [object] = "evalForm.value"></app-projet>
 </div>
 <div *ngIf="chosenType === 'Codage'">
   <app-codage></app-codage>
