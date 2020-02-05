@@ -50,6 +50,7 @@ import { StructureComponent } from "./structure/structure.component";
 import { ProjetComponent } from "./typeEval/projet/projet.component";
 import { LanguageComponent } from "./typeEval/qcm/language.component";
 import { CodageComponent } from "./typeEval/codage/codage.component";
+import { EvalCandidatComponent } from './eval-candidat/eval-candidat.component';
 
 @NgModule({
   imports: [
@@ -101,7 +102,8 @@ import { CodageComponent } from "./typeEval/codage/codage.component";
     ProjetComponent,
     LanguageComponent,
     StructureComponent,
-    CodageComponent
+    CodageComponent,
+    EvalCandidatComponent
   ],
   providers: [MatDatepickerModule],
   bootstrap: [AppComponent],

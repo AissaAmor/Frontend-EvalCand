@@ -10,6 +10,7 @@ import { listCandidatComponent } from "./listCandidat/listCandidat.component";
 import { DashboardComponent } from "./dashboard/dashboard.component";
 import { StructureComponent } from "./structure/structure.component";
 import { SignInComponent } from "./sign-in/sign-in.component";
+import { EvalCandidatComponent } from "./eval-candidat/eval-candidat.component";
 
 const routes: Routes = [
   {
@@ -18,6 +19,7 @@ const routes: Routes = [
     pathMatch: "full"
   },
   { path: "sign-in", component: SignInComponent },
+  { path: "eval-candidat", component: EvalCandidatComponent },
   {
     path: "",
     component: StructureComponent,
