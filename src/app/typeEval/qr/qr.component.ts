@@ -1,4 +1,4 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 import {FormControl,Validators, FormGroup, FormControlName, FormArray} from '@angular/forms';
 import {MatFormFieldModule} from '@angular/material/form-field';
 
@@ -12,6 +12,7 @@ export class QRComponent implements OnInit {
  
 skills: FormArray;
 @Input()object: any;
+@Output() retour= new EventEmitter<string>();
 tp = new FormGroup({
   skills: new FormArray([
     new FormGroup({
@@ -62,5 +63,8 @@ tp = new FormGroup({
     }
     console.log(this.object.value);
     
+  }
+  Return(){
+    this.retour.emit('retour');
   }
 }

@@ -55,7 +55,7 @@
 </div>
 </div>
 <div *ngIf="chosenType === 'qr'">
-  <app-qr [object] = "evalForm.value"></app-qr>  
+  <app-qr [object] = "evalForm.value" (retour)="getRetour($event)" ></app-qr>  
 </div>
 <div *ngIf="chosenType === 'QCM'">
   <app-qcm></app-qcm>
