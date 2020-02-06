@@ -21,6 +21,7 @@ tp = new FormGroup({
   })
   ])
 });
+  obj: any;
 
   constructor() { }
   addQR(){
@@ -56,13 +57,13 @@ tp = new FormGroup({
     const obj = {
     
       qr: this.tp.value.skills,
-      Titre: this.object.value.Titre,
-      Etat: this.object.value.Etat,
-      Duree:this.object.value.Duree,
+      Titre: this.object.Titre,
+      Etat: this.object.Etat,
+      Duree:this.object.Duree,
 
     }
     console.log(this.object.value);
-    
+    console.log(this.obj.value);
   }
   Return(){
     this.retour.emit('retour');
