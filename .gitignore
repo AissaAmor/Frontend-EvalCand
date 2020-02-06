@@ -7,6 +7,7 @@
 
 # dependencies
 /node_modules
+/Angular-Bootstrap-with-Material-Design
 
 # IDEs and editors
 /.idea
