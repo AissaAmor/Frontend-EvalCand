@@ -1,3 +1,4 @@
+
 import { NgModule } from '@angular/core';
 import { CommonModule, } from '@angular/common';
 import { BrowserModule  } from '@angular/platform-browser';
@@ -12,24 +13,38 @@ import { QRComponent } from './typeEval/qr/qr.component';
 import { ProjetComponent } from './typeEval/projet/projet.component';
 
 
-const routes: Routes =[
-  {  path: '', redirectTo: 'dashboard', pathMatch: 'full'}, 
-  { path: 'dashboard', component: DashboardComponent},  
-  { path: 'ajouter-Eval', component: AjoutEvalComponent},
-  { path: 'ajout-Candidat', component: UserProfileComponent},
-  { path: 'coach-profile', component: CoachProfilComponent},
-  { path: 'table-list', component: TableListComponent},
-  { path: 'QR', component: QRComponent},
-  { path: 'projet', component: ProjetComponent}
+import { ajoutCandidatComponent } from "./ajoutCandidat/ajoutCandidat.component";
+import { listCandidatComponent } from "./listCandidat/listCandidat.component";
+import { StructureComponent } from "./structure/structure.component";
+import { SignInComponent } from "./sign-in/sign-in.component";
+import { EvalCandidatComponent } from "./eval-candidat/eval-candidat.component";
+
+const routes: Routes = [
+  {
+    path: "",
+    redirectTo: "sign-in",
+    pathMatch: "full"
+  },
+  { path: "sign-in", component: SignInComponent },
+  { path: "eval-candidat", component: EvalCandidatComponent },
+  {
+    path: "",
+    component: StructureComponent,
+    children: [
+      { path: "dashboard", component: DashboardComponent },
+      { path: "ajouter-Eval", component: AjoutEvalComponent },
+      { path: "ajout-Candidat", component: ajoutCandidatComponent },
+      { path: "coach-profile", component: CoachProfilComponent },
+      { path: "list-candidat", component: listCandidatComponent },
+      { path: 'QR', component: QRComponent},
+      { path: 'projet', component: ProjetComponent}
+
+    ]
+  }
 ];
 
 @NgModule({
-  imports: [
-    CommonModule,
-    BrowserModule,
-    RouterModule.forRoot(routes)
-  ],
-  exports: [
-  ],
+  imports: [CommonModule, BrowserModule, RouterModule.forRoot(routes)],
+  exports: [RouterModule]
 })
-export class AppRoutingModule { }
+export class AppRoutingModule {}

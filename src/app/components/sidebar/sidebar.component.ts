@@ -1,5 +1,5 @@
 import { Component, OnInit } from "@angular/core";
-
+import { CoachService } from "../../Services/coach.service";
 declare interface RouteInfo {
   path: string;
   title: string;
@@ -7,7 +7,12 @@ declare interface RouteInfo {
   class: string;
 }
 export const ROUTES: RouteInfo[] = [
-  { path: "/dashboard", title: "Dashboard", icon: "design_app", class: "" },
+  {
+    path: "/dashboard",
+    title: "Dashboard",
+    icon: "design_app",
+    class: ""
+  },
 
   {
     path: "/ajouter-Eval",
@@ -21,15 +26,15 @@ export const ROUTES: RouteInfo[] = [
     icon: "users_single-02",
     class: ""
   },
+  // {
+  //   path: "/coach-profile",
+  //   title: "Coach profile",
+  //   icon: "design_bullet-list-67",
+  //   class: ""
+  // },
   {
-    path: "/coach-profile",
-    title: "Coach profile",
-    icon: "design_bullet-list-67",
-    class: ""
-  },
-  {
-    path: "/table-list",
-    title: "Table List",
+    path: "/list-candidat",
+    title: "List Candidats",
     icon: "design_bullet-list-67",
     class: ""
   }
@@ -42,8 +47,9 @@ export const ROUTES: RouteInfo[] = [
 })
 export class SidebarComponent implements OnInit {
   menuItems: any[];
-
-  constructor() {}
+  tokenValue: any;
+  invalidLogin = false;
+  constructor(private cService: CoachService) {}
 
   ngOnInit() {
     this.menuItems = ROUTES.filter(menuItem => menuItem);
