@@ -35,6 +35,7 @@ import {
 
 import { AppComponent } from "./app.component";
 
+
 import { QRComponent } from "./typeEval/qr/qr.component";
 import { CoachProfilComponent } from "./coach-profil/coach-profil.component";
 import { FooterComponent } from "./components/footer/footer.component";
@@ -100,6 +101,8 @@ import { EvalCandidatComponent } from './eval-candidat/eval-candidat.component';
     ajoutCandidatComponent,
     SignInComponent,
     ProjetComponent,
+    QcmComponent,
+    CodageComponent
     LanguageComponent,
     StructureComponent,
     CodageComponent,

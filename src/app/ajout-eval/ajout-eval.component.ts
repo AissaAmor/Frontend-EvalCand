@@ -36,5 +36,12 @@ export class AjoutEvalComponent implements OnInit {
   }
   onChange(event) {
     this.chosenType = event.value;
+    
+  }
+  getRetour(event) {
+    console.log(event)
+    this.chosenType = '';
   }
 }
+}
+
