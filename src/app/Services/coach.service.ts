@@ -6,16 +6,22 @@ import { HttpClient, HttpHeaders } from "@angular/common/http";
 })
 export class CoachService {
   constructor(private http: HttpClient) {}
-  addCandidat() {
+  addCandidat(object) {
     let header = new HttpHeaders().set(
       "Authorization",
       "Bearer " + localStorage.getItem("token")
     );
-    return this.http.post("http://localhost:9000/coach/addCandidat", {
+    return this.http.post("http://localhost:9000/coach/addCandidat", object, {
       headers: header
     });
   }
   afficheAllCand() {
-    return this.http.get("http://localhost:9000/candidat/all");
+    let header = new HttpHeaders().set(
+      "Authorization",
+      "Bearer " + localStorage.getItem("token")
+    );
+    return this.http.get("http://localhost:9000/candidat/all", {
+      headers: header
+    });
   }
 }

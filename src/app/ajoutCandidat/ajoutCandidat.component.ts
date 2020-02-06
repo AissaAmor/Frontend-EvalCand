@@ -25,7 +25,7 @@ export class ajoutCandidatComponent implements OnInit {
     });
   }
   ajoutCandidat() {
-    this.coachservice.addCandidat().subscribe(data => {
+    this.coachservice.addCandidat(this.candidatForm.value).subscribe(data => {
       console.log(this.candidatForm.value);
     });
   }
