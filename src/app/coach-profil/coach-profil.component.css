@@ -7,7 +7,16 @@ button {
   background-color: #039be5;
   color: white;
   font-size: 20px;
-  position: relative;
+  float: right;
+  /* padding: 60px 50px 40px 50px; */
+  /* width: 100%; */
+  /* background: #fff; */
+  /* border-radius: 10px; */
+  /* transform: scale(1); */
+  /* -webkit-transform: scale(1); */
+  /* -ms-transform: scale(1); */
+  /* z-index: 5; */
+  /* max-width: 330px; */
 }
 h2 {
   text-align: center;

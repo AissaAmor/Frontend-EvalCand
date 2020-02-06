@@ -27,7 +27,8 @@ export class AuthService {
   }
 
   getCoach() {
-    this.connectedCoach = JWT(localStorage.getItem("token"));
+    if (localStorage.getItem("token"))
+      return (this.connectedCoach = JWT(localStorage.getItem("token")));
   }
   iscoachLoggedIn() {
     let tokenValue = localStorage.getItem("token");
@@ -35,5 +36,7 @@ export class AuthService {
     return true;
   }
 
-  logOut() {}
+  logOut() {
+    localStorage.removeItem("token");
+  }
 }

@@ -7,6 +7,7 @@ import {
 } from "@angular/common";
 import { Router } from "@angular/router";
 import { CoachService } from "../../Services/coach.service";
+import { AuthService } from "../../Services/auth.service";
 
 import Chart from "chart.js";
 @Component({
@@ -23,11 +24,15 @@ export class NavbarComponent implements OnInit {
 
   public isCollapsed = true;
 
+  logout: any;
+  coach: any;
+
   constructor(
     location: Location,
     private element: ElementRef,
     private router: Router,
-    private cServices: CoachService
+    private cServices: CoachService,
+    private authService: AuthService
   ) {
     this.location = location;
     this.sidebarVisible = false;
@@ -45,6 +50,8 @@ export class NavbarComponent implements OnInit {
         this.mobile_menu_visible = 0;
       }
     });
+    this.coach = this.authService.getCoach();
+    console.log(this.coach);
   }
 
   collapse() {
@@ -165,5 +172,8 @@ export class NavbarComponent implements OnInit {
       }
     }
     return "Dashboard";
+  }
+  logOut() {
+    this.authService.logOut();
   }
 }
