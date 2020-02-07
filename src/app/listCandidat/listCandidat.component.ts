@@ -10,10 +10,10 @@ export class listCandidatComponent implements OnInit {
   constructor(private coachservice: CoachService) {}
   allCand;
   ngOnInit() {
-    this.coachservice.afficheAllCand().subscribe(data => {
-      this.allCand = data;
-      console.log(this.allCand);
-    });
+    // this.coachservice.afficheAllCand().subscribe(data => {
+    //   this.allCand = data;
+    //   console.log(this.allCand);
+    // });
   }
   // afficheCandidat() {
 

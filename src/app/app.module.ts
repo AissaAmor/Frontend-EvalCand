@@ -49,7 +49,6 @@ import { AjoutEvalComponent } from "./ajout-eval/ajout-eval.component";
 import { StructureComponent } from "./structure/structure.component";
 
 import { ProjetComponent } from "./typeEval/projet/projet.component";
-import { LanguageComponent } from "./typeEval/qcm/language.component";
 import { CodageComponent } from "./typeEval/codage/codage.component";
 import { EvalCandidatComponent } from './eval-candidat/eval-candidat.component';
 
@@ -101,9 +100,7 @@ import { EvalCandidatComponent } from './eval-candidat/eval-candidat.component';
     ajoutCandidatComponent,
     SignInComponent,
     ProjetComponent,
-    QcmComponent,
-    CodageComponent
-    LanguageComponent,
+    CodageComponent,
     StructureComponent,
     CodageComponent,
     EvalCandidatComponent

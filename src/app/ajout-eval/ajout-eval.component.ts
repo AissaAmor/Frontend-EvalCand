@@ -28,11 +28,10 @@ export class AjoutEvalComponent implements OnInit {
   ngOnInit(): void {
     this.chosenType = "";
     this.evalForm = new FormGroup({
-      Titre: new FormControl("", [Validators.required]),
-      Etat: new FormControl("Activée", [Validators.required]),
-      Duree: new FormControl(0, [Validators.required])
+      titre: new FormControl("", [Validators.required]),
+      etat: new FormControl("Activée", [Validators.required]),
+      duree: new FormControl(0, [Validators.required])
     });
-    console.log(this.evalForm.value);
   }
   onChange(event) {
     this.chosenType = event.value;
@@ -42,6 +41,7 @@ export class AjoutEvalComponent implements OnInit {
     console.log(event)
     this.chosenType = '';
   }
+  
 }
-}
+
 
