@@ -1,6 +1,7 @@
 import { Component, OnInit, EventEmitter, Output, Input } from '@angular/core';
 import { FormArray, FormGroup, FormControl, Validators } from '@angular/forms';
 import { RouterModule, Router } from '@angular/router';
+import { EvaluationService } from "../../Services/evaluation.service";;
 
 @Component({
   selector: 'app-projet',
@@ -9,6 +10,7 @@ import { RouterModule, Router } from '@angular/router';
 })
 export class ProjetComponent implements OnInit {
 projet : FormArray;
+obj: any;
 @Input() object: any;
   @Output() retour= new EventEmitter<string>();
 tp = new FormGroup ({
@@ -19,11 +21,9 @@ tp = new FormGroup ({
       })
     ])
 });
-
-
-
-
-  constructor(private router : Router ) { }
+  
+ 
+  constructor( private evalService : EvaluationService) { }
   addPrj(){
     this.projet = this.tp.get('projet') as FormArray;
     this.projet.push(  new FormGroup({
@@ -40,6 +40,17 @@ tp = new FormGroup ({
   }
   enregistrer(){
     
+    this.obj = {
+
+      titre: this.object.titre,
+      etat: this.object.etat,
+      duree:this.object.duree,
+      prj:this.tp.value.projet
+    }
+    this.evalService.addEvaluationPrj(this.obj).subscribe(data => {
+      console.log(this.obj);});
+
+
   }
   Return(){
     this.retour.emit('retour');
