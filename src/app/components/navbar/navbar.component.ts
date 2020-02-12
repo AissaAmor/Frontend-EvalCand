@@ -50,7 +50,7 @@ export class NavbarComponent implements OnInit {
         this.mobile_menu_visible = 0;
       }
     });
-    this.coach = this.authService.getCoach();
+    this.coach = this.authService.getToken();
     console.log(this.coach);
   }
 

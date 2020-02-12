@@ -35,7 +35,6 @@ import {
 
 import { AppComponent } from "./app.component";
 
-
 import { QRComponent } from "./typeEval/qr/qr.component";
 import { CoachProfilComponent } from "./coach-profil/coach-profil.component";
 import { FooterComponent } from "./components/footer/footer.component";
@@ -49,9 +48,11 @@ import { AjoutEvalComponent } from "./ajout-eval/ajout-eval.component";
 import { StructureComponent } from "./structure/structure.component";
 
 import { ProjetComponent } from "./typeEval/projet/projet.component";
-import { LanguageComponent } from "./typeEval/qcm/language.component";
 import { CodageComponent } from "./typeEval/codage/codage.component";
-import { EvalCandidatComponent } from './eval-candidat/eval-candidat.component';
+import { EvalCandidatComponent } from "./eval-candidat/eval-candidat.component";
+import { RestPasswordComponent } from "./Password-reset-Email/rest-password/rest-password.component";
+import { SendEmailComponent } from "./Password-reset-Email/send-email/send-email.component";
+import { ForgetPasswordComponent } from './Password-reset-Email/forget-password/forget-password.component';
 
 @NgModule({
   imports: [
@@ -101,12 +102,13 @@ import { EvalCandidatComponent } from './eval-candidat/eval-candidat.component';
     ajoutCandidatComponent,
     SignInComponent,
     ProjetComponent,
-    QcmComponent,
-    CodageComponent
-    LanguageComponent,
+    CodageComponent,
     StructureComponent,
     CodageComponent,
-    EvalCandidatComponent
+    EvalCandidatComponent,
+    RestPasswordComponent,
+    SendEmailComponent,
+    ForgetPasswordComponent
   ],
   providers: [MatDatepickerModule],
   bootstrap: [AppComponent],
