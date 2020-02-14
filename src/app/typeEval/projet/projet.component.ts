@@ -27,7 +27,7 @@ tp = new FormGroup ({
   addPrj(){
     this.projet = this.tp.get('projet') as FormArray;
     this.projet.push(  new FormGroup({
-      enonce: new FormControl('', [Validators.required]),
+      enonce : new FormControl('', [Validators.required]),
       lienGit : new FormControl('',[Validators.required])
     }));   
     console.log(this.tp.value) 
@@ -45,7 +45,7 @@ tp = new FormGroup ({
       titre: this.object.titre,
       etat: this.object.etat,
       duree:this.object.duree,
-      prj:this.tp.value.projet
+      projet:this.tp.value.projet
     }
     this.evalService.addEvaluationPrj(this.obj).subscribe(data => {
       console.log(this.obj);});

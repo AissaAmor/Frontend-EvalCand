@@ -21,7 +21,7 @@
                 </mat-form-field>
                 <br>
                 <mat-form-field>
-                  <input matInput type="text"  class="form-control" placeholder="lien Git">
+                  <input matInput  class="form-control" formControlName="lienGit" placeholder="lien Git">
                   <mat-error *ngIf="tp['controls'].projet['controls'][i].hasError('required', 'lienGit')">Link is required             
                   </mat-error>
                 </mat-form-field>

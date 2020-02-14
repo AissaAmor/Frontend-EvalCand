@@ -13,7 +13,7 @@ export class EvaluationService {
       "Bearer " + localStorage.getItem("token")
     );
     console.log(object);
-    return this.http.post("http://localhost:9000/evaluation/add", object, {
+    return this.http.post("http://localhost:9000/evaluation/addQR", object, {
       headers: header
     });
 }
@@ -24,9 +24,9 @@ addEvaluationPrj(object){
     "Bearer " + localStorage.getItem("token")
   );
   console.log(object);
-  return this.http.post("http://localhost:9000/evaluation/add", object, {
+  return this.http.post("http://localhost:9000/evaluation/addProjet", object, {
     headers: header
   });
 }
 
-}
+ }
