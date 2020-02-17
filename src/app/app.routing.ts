@@ -1,4 +1,4 @@
-
+import{EditEvalComponent} from './edit-eval/edit-eval.component';
 import { NgModule } from '@angular/core';
 import { CommonModule, } from '@angular/common';
 import { BrowserModule  } from '@angular/platform-browser';
@@ -9,8 +9,6 @@ import { DashboardComponent } from './dashboard/dashboard.component';
 import { SidebarComponent } from './components/sidebar/sidebar.component';
 import { QRComponent } from './typeEval/qr/qr.component';
 import { ProjetComponent } from './typeEval/projet/projet.component';
-
-
 import { ajoutCandidatComponent } from "./ajoutCandidat/ajoutCandidat.component";
 import { listCandidatComponent } from "./listCandidat/listCandidat.component";
 import { StructureComponent } from "./structure/structure.component";
@@ -35,8 +33,8 @@ const routes: Routes = [
       { path: "coach-profile", component: CoachProfilComponent },
       { path: "list-candidat", component: listCandidatComponent },
       { path: 'QR', component: QRComponent},
-      { path: 'projet', component: ProjetComponent}
-
+      { path: 'projet', component: ProjetComponent},
+      { path: "edit", component: EditEvalComponent }
     ]
   }
 ];

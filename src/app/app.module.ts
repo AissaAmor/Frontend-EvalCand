@@ -34,8 +34,6 @@ import {
 } from "@angular/material";
 
 import { AppComponent } from "./app.component";
-
-
 import { QRComponent } from "./typeEval/qr/qr.component";
 import { CoachProfilComponent } from "./coach-profil/coach-profil.component";
 import { FooterComponent } from "./components/footer/footer.component";
@@ -51,6 +49,7 @@ import { StructureComponent } from "./structure/structure.component";
 import { ProjetComponent } from "./typeEval/projet/projet.component";
 import { CodageComponent } from "./typeEval/codage/codage.component";
 import { EvalCandidatComponent } from './eval-candidat/eval-candidat.component';
+import { EditEvalComponent } from './edit-eval/edit-eval.component';
 
 @NgModule({
   imports: [
@@ -103,7 +102,8 @@ import { EvalCandidatComponent } from './eval-candidat/eval-candidat.component';
     CodageComponent,
     StructureComponent,
     CodageComponent,
-    EvalCandidatComponent
+    EvalCandidatComponent,
+    EditEvalComponent
   ],
   providers: [MatDatepickerModule],
   bootstrap: [AppComponent],
