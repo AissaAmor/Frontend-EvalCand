@@ -1,0 +1,23 @@
+<div class="background">
+  <div class="row">
+    <div class="col-4"></div>
+    <div class="col-5">
+      <h1>Welcome to the quiz</h1>
+      <div class="row">
+        <h3>Question N {{ i + 1 }} : {{ tab[i].question }}</h3>
+        <div class="col-6">
+          <h4>{{ tab[i].response1 }}</h4>
+          <h4>{{ tab[i].response2 }}</h4>
+        </div>
+        <div class="col-6">
+          <h4>{{ tab[i].response3 }}</h4>
+          <h4>{{ tab[i].response4 }}</h4>
+          <!-- <h4>{{ listQR.titre }}</h4> -->
+        </div>
+      </div>
+    </div>
+  </div>
+  <button (click)="next()">Next</button>
+  <button (click)="previous(i, j)">Previous</button>
+  <button (click)="displayEvaluation()">display</button>
+</div>

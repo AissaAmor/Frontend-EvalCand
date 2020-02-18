@@ -46,7 +46,26 @@ export class AuthService {
   forgetPassword(email) {
     return this.http.post("http://localhost:9000/coach/forget-password", email);
   }
-  resetPassword(id) {
-    return this.http.post("http://localhost:9000/coach/reset-password/", id);
+
+  resetPassword(id, newPass) {
+    return this.http.post(
+      "http://localhost:9000/coach/reset-password/" + id,
+      newPass
+    );
+  }
+
+  updatePassword(password) {
+    let header = new HttpHeaders().set(
+      "Authorization",
+      "Bearer " + localStorage.getItem("token")
+    );
+    console.log(this.getToken().id);
+    return this.http.post(
+      "http://localhost:9000/coach/update-password/" + this.getToken().id,
+      password,
+      {
+        headers: header
+      }
+    );
   }
 }

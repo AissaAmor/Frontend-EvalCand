@@ -15,13 +15,13 @@ export class CoachService {
       headers: header
     });
   }
-  // afficheAllCand() {
-  //   let header = new HttpHeaders().set(
-  //     "Authorization",
-  //     "Bearer " + localStorage.getItem("token")
-  //   );
-  //   return this.http.get("http://localhost:9000/candidat/all", {
-  //     headers: header
-  //   });
-  // }
+  afficheAllCand() {
+    let header = new HttpHeaders().set(
+      "Authorization",
+      "Bearer " + localStorage.getItem("token")
+    );
+    return this.http.get("http://localhost:9000/candidat/all", {
+      headers: header
+    });
+  }
 }
