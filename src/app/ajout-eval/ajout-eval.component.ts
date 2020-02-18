@@ -50,7 +50,11 @@ export class AjoutEvalComponent implements OnInit {
     console.log(event)
     this.chosenType = '';
   }
+  Save(evaluation){
+    this.evalservice.Save(evaluation).subscribe(data => {
+      console.log(data);
   
+});
+  }
 }
-
 
