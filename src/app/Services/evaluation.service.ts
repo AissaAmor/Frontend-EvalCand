@@ -38,4 +38,14 @@ export class EvaluationService {
       headers: header
     });
   }
+
+  getAllEvaluation() {
+    let header = new HttpHeaders().set(
+      "Authorization",
+      "Bearer " + localStorage.getItem("token")
+    );
+    return this.http.get(" http://localhost:9000/evaluation/all", {
+      headers: header
+    });
+  }
 }

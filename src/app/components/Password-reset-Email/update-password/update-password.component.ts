@@ -12,9 +12,9 @@ export class UpdatePasswordComponent implements OnInit {
   id;
   constructor(private authservice: AuthService, private router: Router) {}
 
-  password = new FormControl("", (Validators.required, Validators.email));
+  password = new FormControl("", Validators.required);
   ngOnInit() {}
-  updatePass(password) {
+  updatePass() {
     // this.id = this.authservice.getToken().id;
     this.authservice
       .updatePassword({ password: this.password.value })

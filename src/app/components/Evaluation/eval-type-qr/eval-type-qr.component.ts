@@ -8,29 +8,6 @@ import { EvaluationService } from "../../../Services/evaluation.service";
 })
 export class EvalTypeQRComponent implements OnInit {
   listQR;
-  tab = [
-    {
-      question: "whats your name",
-      response1: "ahmed",
-      response2: "aissa",
-      response3: "amor",
-      response4: "aimen"
-    },
-    {
-      question: "how old are you",
-      response1: "19",
-      response2: "18",
-      response3: "12",
-      response4: "21"
-    },
-    {
-      question: "where are you from",
-      response1: "kebili",
-      response2: "bouargoub",
-      response3: "gabes",
-      response4: "grombalia"
-    }
-  ];
   i = 0;
   j = 1;
   constructor(private evalService: EvaluationService) {}
@@ -49,9 +26,6 @@ export class EvalTypeQRComponent implements OnInit {
     this.evalService.displayEval(68).subscribe(data => {
       console.log(data);
       this.listQR = data;
-      setTimeout(() => {
-        console.log("Game over");
-      }, 5000);
     });
   }
 }

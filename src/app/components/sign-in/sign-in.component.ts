@@ -25,6 +25,7 @@ export class SignInComponent implements OnInit {
   }
   checkLogin() {
     this.authService.login(this.loginForm.value).subscribe((response: any) => {
+      console.log(this.loginForm.value);
       console.log(response);
       localStorage.setItem("token", response.token);
       this.router.navigateByUrl("dashboard");

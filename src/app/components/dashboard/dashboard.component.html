@@ -27,12 +27,12 @@
       </div>
     </div>
   </div>
-  <div class="row">
+  <div class="row" *ngFor="let eval of allEval">
     <div class="col-lg-4">
       <div class="card card-chart">
         <div class="card-header">
-          <h5 class="card-category">lorem</h5>
-          <h4 class="card-title">lorem eval 1</h4>
+          <h4 class="card-title">{{ eval.titre }}</h4>
+          <h5 class="card-category">{{ eval.titre }}</h5>
           <div ngbDropdown>
             <button
               type="button"
