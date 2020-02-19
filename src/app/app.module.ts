@@ -55,6 +55,7 @@ import { UpdatePasswordComponent } from "./components/Password-reset-Email/updat
 import { SendEmailComponent } from "./components/Password-reset-Email/send-email/send-email.component";
 import { ForgetPasswordComponent } from "./components/Password-reset-Email/forget-password/forget-password.component";
 import { EvalTypeQRComponent } from "./components/Evaluation/eval-type-qr/eval-type-qr.component";
+import { EditEvalComponent } from "./edit-eval/edit-eval.component";
 
 @NgModule({
   imports: [
@@ -111,7 +112,8 @@ import { EvalTypeQRComponent } from "./components/Evaluation/eval-type-qr/eval-t
     UpdatePasswordComponent,
     SendEmailComponent,
     ForgetPasswordComponent,
-    EvalTypeQRComponent
+    EvalTypeQRComponent,
+    EditEvalComponent
   ],
   providers: [MatDatepickerModule],
   bootstrap: [AppComponent],

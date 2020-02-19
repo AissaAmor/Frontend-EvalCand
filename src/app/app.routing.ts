@@ -18,6 +18,7 @@ import { UpdatePasswordComponent } from "./components/Password-reset-Email/updat
 import { SendEmailComponent } from "./components/Password-reset-Email/send-email/send-email.component";
 import { ForgetPasswordComponent } from "./components/Password-reset-Email/forget-password/forget-password.component";
 import { EvalTypeQRComponent } from "./components/Evaluation/eval-type-qr/eval-type-qr.component";
+import { EditEvalComponent } from "./edit-eval/edit-eval.component";
 
 const routes: Routes = [
   {
@@ -41,7 +42,8 @@ const routes: Routes = [
       { path: "list-candidat", component: listCandidatComponent },
       { path: "QR", component: QRComponent },
       { path: "update-password", component: UpdatePasswordComponent },
-      { path: "projet", component: ProjetComponent }
+      { path: "projet", component: ProjetComponent },
+      { path: "edit", component: EditEvalComponent }
     ]
   }
 ];

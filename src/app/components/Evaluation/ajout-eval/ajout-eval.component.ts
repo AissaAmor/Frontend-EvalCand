@@ -10,7 +10,8 @@ import {
   FormGroup,
   FormControlName
 } from "@angular/forms";
-import { Router } from "@angular/router";
+import { Router, ActivatedRoute } from "@angular/router";
+import { EvaluationService } from "../Services/evaluation.service";
 
 @Component({
   selector: "app-ajout-eval",
@@ -21,23 +22,43 @@ export class AjoutEvalComponent implements OnInit {
   evalForm: FormGroup;
   Types = ["qr", "Projet", "QCM"];
   chosenType: string;
-  constructor(private router: Router) {
+  evaluationToEdit: any;
+  isInitialized: boolean = false;
+
+  constructor(private router: Router, private evalservice: EvaluationService) {
     this.chosenType = "";
   }
 
   ngOnInit(): void {
-    this.chosenType = "";
+    this.evaluationToEdit = this.evalservice.getEvaluation();
+    this.evalservice.setEvaluation(null);
+
     this.evalForm = new FormGroup({
-      titre: new FormControl("", [Validators.required]),
-      etat: new FormControl("Activée", [Validators.required]),
-      duree: new FormControl(0, [Validators.required])
+      titre: new FormControl(
+        this.evaluationToEdit != null ? this.evaluationToEdit.titre : "",
+        [Validators.required]
+      ),
+      etat: new FormControl(
+        this.evaluationToEdit != null ? this.evaluationToEdit.etat : "Activée",
+        [Validators.required]
+      ),
+      duree: new FormControl(
+        this.evaluationToEdit != null ? this.evaluationToEdit.duree : 0,
+        [Validators.required]
+      )
     });
   }
+
   onChange(event) {
     this.chosenType = event.value;
   }
   getRetour(event) {
     console.log(event);
     this.chosenType = "";
+  }
+  Save(evaluation) {
+    this.evalservice.Save(evaluation).subscribe(data => {
+      console.log(data);
+    });
   }
 }

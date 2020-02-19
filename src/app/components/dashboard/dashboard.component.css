@@ -10,3 +10,7 @@
   font-size: 25px;
   margin-left: 70px;
 }
+ .text-primary{
+  color: var(--info) !important;
+
+}
