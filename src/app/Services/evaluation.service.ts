@@ -1,8 +1,8 @@
-import { Injectable } from '@angular/core';
+import { Injectable } from "@angular/core";
 import { HttpClient, HttpHeaders } from "@angular/common/http";
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: "root"
 })
 export class EvaluationService {
 
@@ -37,8 +37,17 @@ export class EvaluationService {
       "Authorization",
       "Bearer " + localStorage.getItem("token")
     );
-
     return this.http.get("http://localhost:9000/evaluation/all", {
+      headers: header});
+  }
+  displayEval(id) {
+    let header = new HttpHeaders().set(
+      "Authorization",
+      "Bearer " + localStorage.getItem("token")
+    );
+
+    // console.log(id);
+    return this.http.get(" http://localhost:9000/evaluation/getEval/68", {
       headers: header
     });
   }

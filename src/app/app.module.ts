@@ -6,6 +6,7 @@ import { HttpClientModule } from "@angular/common/http";
 import { RouterModule } from "@angular/router";
 import { NgbModule } from "@ng-bootstrap/ng-bootstrap";
 import { ToastrModule } from "ngx-toastr";
+
 // import { FlexLayoutModule } from "@angular/flex-layout";
 
 import { AppRoutingModule } from "./app.routing";
@@ -34,22 +35,27 @@ import {
 } from "@angular/material";
 
 import { AppComponent } from "./app.component";
-import { QRComponent } from "./typeEval/qr/qr.component";
-import { CoachProfilComponent } from "./coach-profil/coach-profil.component";
-import { FooterComponent } from "./components/footer/footer.component";
-import { NavbarComponent } from "./components/navbar/navbar.component";
-import { SidebarComponent } from "./components/sidebar/sidebar.component";
-import { DashboardComponent } from "./dashboard/dashboard.component";
-import { listCandidatComponent } from "./listCandidat/listCandidat.component";
-import { ajoutCandidatComponent } from "./ajoutCandidat/ajoutCandidat.component";
-import { SignInComponent } from "./sign-in/sign-in.component";
-import { AjoutEvalComponent } from "./ajout-eval/ajout-eval.component";
-import { StructureComponent } from "./structure/structure.component";
 
-import { ProjetComponent } from "./typeEval/projet/projet.component";
-import { CodageComponent } from "./typeEval/codage/codage.component";
-import { EvalCandidatComponent } from './eval-candidat/eval-candidat.component';
-import { EditEvalComponent } from './edit-eval/edit-eval.component';
+import { QRComponent } from "./components/Evaluation/typeEval/qr/qr.component";
+import { CoachProfilComponent } from "./components/coach/coach-profil/coach-profil.component";
+import { FooterComponent } from "./components/Bars/footer/footer.component";
+import { NavbarComponent } from "./components/Bars/navbar/navbar.component";
+import { SidebarComponent } from "./components/Bars/sidebar/sidebar.component";
+import { DashboardComponent } from "./components/dashboard/dashboard.component";
+import { listCandidatComponent } from "./components/candidat/listCandidat/listCandidat.component";
+import { ajoutCandidatComponent } from "./components/candidat/ajoutCandidat/ajoutCandidat.component";
+import { SignInComponent } from "./components/sign-in/sign-in.component";
+import { AjoutEvalComponent } from "./components/Evaluation/ajout-eval/ajout-eval.component";
+import { StructureComponent } from "./components/structure/structure.component";
+
+import { ProjetComponent } from "./components/Evaluation/typeEval/projet/projet.component";
+import { CodageComponent } from "./components/Evaluation/typeEval/codage/codage.component";
+import { EvalCandidatComponent } from "./components/Evaluation/eval-candidat/eval-candidat.component";
+import { UpdatePasswordComponent } from "./components/Password-reset-Email/update-password/update-password.component";
+import { SendEmailComponent } from "./components/Password-reset-Email/send-email/send-email.component";
+import { ForgetPasswordComponent } from "./components/Password-reset-Email/forget-password/forget-password.component";
+import { EvalTypeQRComponent } from "./components/Evaluation/eval-type-qr/eval-type-qr.component";
+import { EditEvalComponent } from "./edit-eval/edit-eval.component";
 
 @NgModule({
   imports: [
@@ -103,6 +109,10 @@ import { EditEvalComponent } from './edit-eval/edit-eval.component';
     StructureComponent,
     CodageComponent,
     EvalCandidatComponent,
+    UpdatePasswordComponent,
+    SendEmailComponent,
+    ForgetPasswordComponent,
+    EvalTypeQRComponent,
     EditEvalComponent
   ],
   providers: [MatDatepickerModule],
