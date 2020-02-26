@@ -6,6 +6,7 @@ import { HttpClientModule } from "@angular/common/http";
 import { RouterModule } from "@angular/router";
 import { NgbModule } from "@ng-bootstrap/ng-bootstrap";
 import { ToastrModule } from "ngx-toastr";
+import { MDBBootstrapModule } from "angular-bootstrap-md";
 
 // import { FlexLayoutModule } from "@angular/flex-layout";
 
@@ -47,7 +48,6 @@ import { ajoutCandidatComponent } from "./components/candidat/ajoutCandidat/ajou
 import { SignInComponent } from "./components/sign-in/sign-in.component";
 import { AjoutEvalComponent } from "./components/Evaluation/ajout-eval/ajout-eval.component";
 import { StructureComponent } from "./components/structure/structure.component";
-
 import { ProjetComponent } from "./components/Evaluation/typeEval/projet/projet.component";
 import { CodageComponent } from "./components/Evaluation/typeEval/codage/codage.component";
 import { EvalCandidatComponent } from "./components/Evaluation/eval-candidat/eval-candidat.component";
@@ -59,7 +59,7 @@ import { EditEvalComponent } from "./edit-eval/edit-eval.component";
 
 @NgModule({
   imports: [
-    BrowserModule,
+    BrowserModule.withServerTransition({ appId: "angular-starter" }),
     BrowserAnimationsModule,
     FormsModule,
     HttpClientModule,
@@ -89,6 +89,7 @@ import { EditEvalComponent } from "./edit-eval/edit-eval.component";
     MatTooltipModule,
     MatTableModule,
     MatPaginatorModule,
+    MDBBootstrapModule.forRoot(),
     ToastrModule.forRoot()
   ],
   declarations: [

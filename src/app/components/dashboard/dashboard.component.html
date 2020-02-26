@@ -14,95 +14,128 @@
             </p>
           </h4>
         </div>
-        <div class="card-footer">
-          <div class="row">
-            <div class="col-4"></div>
-            <div class="col-6">
-              <button class="btnDash" routerLink="ajouter-Eval">
-                Créer evaluation
-              </button>
-            </div>
+        <div class="row">
+          <div class="col-4"></div>
+          <div class="col-6">
+            <button class="btnDash" routerLink="ajouter-Eval">
+              Créer evaluation
+            </button>
           </div>
-          <button
-            mdbBtn
-            type="button"
-            gradient="blue"
-            rounded="true"
-            mdbWavesEffect
-          >
-            Blue
-          </button>
         </div>
       </div>
     </div>
   </div>
   <div class="row">
-    <div class="col-lg-12">
-      <div class="card card-chart">
+    <div class="col-md-12">
+      <div class="card">
         <div class="card-header">
           <h4 class="card-title">Evaluation</h4>
         </div>
         <div class="card-body">
-          <div class="table-responsive">
-            <table class="table">
-              <thead class=" text-primary">
-                <th>
-                  Titre
-                </th>
-                <th>
-                  Type Evaluation
-                </th>
-                <th>
-                  Niveau
-                </th>
-                <th class="text-right"></th>
-              </thead>
-              <tbody>
-                <tr *ngFor="let evaluation of evaluations">
-                  <td>
-                    {{ evaluation.titre }}
-                  </td>
-                  <td>
-                    {{ evaluation.etat }}
-                  </td>
-                  <td></td>
-                  <td>
-                    <button
-                      mat-button
-                      color="primary"
-                      (click)="DuplicateEval(evaluation)"
-                    >
-                      Duplicate
-                    </button>
-                    <!-- <i class="material-icons">delete_forever</i>             -->
+          <div class="row">
+            <div class="col-3 text-primary">Titre</div>
+            <div class="col-3 text-primary">Etat d'Evaluation</div>
+            <div class="col-2 text-primary">Niveau</div>
+            <div class="col-3 text-primary"></div>
+          </div>
+          <div
+            class="row"
+            *ngFor="let evaluation of evaluations; let index = index"
+          >
+            <div class="col-3 text-primary">{{ evaluation.titre }}</div>
+            <div class="col-3 text-primary">{{ evaluation.etat }}</div>
+            <div class="col-2 text-primary"></div>
+            <div class="col-3 text-primary">
+              <button
+                type="button"
+                mdbBtn
+                color="default"
+                rounded="true"
+                data-toggle="modal"
+                data-target="#basicExample"
+                mdbWavesEffect
+                (click)="DuplicateEval(evaluation)"
+              >
+                Duplicate
+              </button>
+              <button
+                type="button"
+                mdbBtn
+                color="default"
+                rounded="true"
+                data-toggle="modal"
+                data-target="#basicExample"
+                (click)="frame.show()"
+                mdbWavesEffect
+              >
+                add
+              </button>
+            </div>
+          </div>
+          <!--Modal mdbootstrap  LIST CANDIDATS-->
+          <div
+            mdbModal
+            #frame="mdbModal"
+            class="modal fade left"
+            id="frameModalTop"
+            tabindex="-1"
+            role="dialog"
+            aria-labelledby="myModalLabel"
+            aria-hidden="true"
+          >
+            <div class="modal-dialog modal-lg" role="document">
+              <div class="modal-content">
+                <div class="modal-header text-center">
+                  <h4 class="modal-title w-100 font-weight-bold">
+                    Choisir les candidats
+                  </h4>
+                  <button
+                    type="button"
+                    class="close"
+                    data-dismiss="modal"
+                    aria-label="Close"
+                    (click)="frame.hide()"
+                  >
+                    <span aria-hidden="true">&times;</span>
+                  </button>
+                </div>
 
-                    <!-- <button mat-button color="primary"(click)= "UpdateEval(evaluation)" >Update</button> -->
-                    <!-- <button mat-button color="primary"(click)= "DeleteEval(evaluation)" >Delete</button> -->
-                  </td>
-                  <td class="text-right"></td>
-                </tr>
-              </tbody>
-            </table>
-          </div>
+                <div class="row menu">
+                  <div class="col-2 text-primary">Nom</div>
+                  <div class="col-3 text-primary">Prénom</div>
+                  <div class="col-3 text-primary">Email</div>
+                  <div class="col-2 text-primary">Niveau</div>
+                  <div class="col-1 text-primary"></div>
+                </div>
+                <div class="row menu" *ngFor="let cand of allCand">
+                  <div class="col-2">{{ cand.nom }}</div>
+                  <div class="col-3">{{ cand.prenom }}</div>
+                  <div class="col-3">{{ cand.email }}</div>
+                  <div class="col-2">{{ cand.niveau }}</div>
+                  <div class="col-1">
+                    <input
+                      type="checkbox"
+                      (change)="onChange(cand.email, $event.target.checked)"
+                    />
 
-          <!-- <h5 class="card-category">lorem</h5>
-          <h4 class="card-title">lorem eval 1</h4>
-          <div ngbDropdown>
-            <button type="button" class="btn btn-round btn-default dropdown-toggle btn-simple btn-icon no-caret"
-              ngbDropdownToggle>
-              <i class="now-ui-icons loader_gear"></i>
-            </button>
-            <div ngbDropdownMenu class="dropdown-menu-right"></div>
-          </div>
-        </div>
-        <div class="card-body">
-          <div class="chart-area">
-            <p>text</p>
-          </div>
-        </div> -->
-          <div class="card-footer">
-            <div class="stats">
-              <i class="now-ui-icons arrows-1_refresh-69"></i>
+                    <br />
+                  </div>
+                  <hr />
+                </div>
+
+                <div class="modal-footer d-flex justify-content-center">
+                  <button
+                    mdbBtn
+                    color="unique"
+                    class="waves-light"
+                    mdbWavesEffect
+                    (click)="position(index)"
+                  >
+                    Send
+                    <mdb-icon far icon="paper-plane" class="ml-1"></mdb-icon>
+                  </button>
+                </div>
+              </div>
             </div>
           </div>
         </div>

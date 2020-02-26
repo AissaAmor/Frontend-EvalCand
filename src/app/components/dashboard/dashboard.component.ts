@@ -1,7 +1,17 @@
 import { Component, OnInit } from "@angular/core";
 import * as Chartist from "chartist";
 import { Router } from "@angular/router";
-import { EvaluationService } from "../Services/evaluation.service";
+import { EvaluationService } from "../../Services/evaluation.service";
+import { CoachService } from "../../Services/coach.service";
+import {
+  FormBuilder,
+  FormGroup,
+  FormArray,
+  FormControl,
+  Validators
+} from "@angular/forms";
+import { ActivatedRoute } from "@angular/router";
+
 @Component({
   selector: "app-dashboard",
   templateUrl: "./dashboard.component.html",
@@ -10,14 +20,31 @@ import { EvaluationService } from "../Services/evaluation.service";
 export class DashboardComponent implements OnInit {
   evaluations: any;
   evaluation;
-  constructor(private router: Router, private evalservice: EvaluationService) {}
+  allCand;
+  getId;
+  form: FormGroup;
+
+  constructor(
+    private router: Router,
+    private evalservice: EvaluationService,
+    private coachservice: CoachService,
+    private fb: FormBuilder,
+    private activateRoute: ActivatedRoute
+  ) {}
 
   ngOnInit() {
+    this.form = new FormGroup({
+      candidatEmail: this.fb.array([])
+    });
     if (!localStorage.getItem("token")) {
       this.router.navigate(["/"]);
     }
-
     this.getAllEvaluation();
+
+    this.coachservice.afficheAllCand().subscribe(data => {
+      this.allCand = data;
+      console.log(this.allCand);
+    });
   }
 
   DuplicateEval(evaluation) {
@@ -25,6 +52,7 @@ export class DashboardComponent implements OnInit {
       console.log(data);
       this.evalservice.setEvaluation(data);
       this.router.navigate(["/ajouter-Eval"]);
+      this.getId = this.activateRoute.snapshot.params.id;
     });
   }
 
@@ -34,10 +62,19 @@ export class DashboardComponent implements OnInit {
       console.log(data);
     });
   }
-  //   DeleteEval(evaluation){
-  //     this.evalservice.DeleteEval(evaluation.id)
-  //       .subscribe( data => {
-  //         this.evaluations = this.evaluations.filter(u => u !== evaluation);
-  //       })
-  // }
+
+  onChange(email: string, isChecked: boolean) {
+    const emailArray = <FormArray>this.form.controls.candidatEmail;
+
+    if (isChecked) {
+      emailArray.push(new FormControl(email));
+    } else {
+      let index = emailArray.controls.findIndex(x => x.value == email);
+      emailArray.removeAt(index);
+    }
+  }
+
+  position(index) {
+    console.log(index);
+  }
 }

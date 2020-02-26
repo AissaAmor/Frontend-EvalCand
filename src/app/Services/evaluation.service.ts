@@ -5,7 +5,10 @@ import { HttpClient, HttpHeaders } from "@angular/common/http";
   providedIn: "root"
 })
 export class EvaluationService {
+  private evaluationToEdit: any;
   constructor(private http: HttpClient) {}
+
+  //Ajout evaluation de type QR
   addEvaluationQR(object) {
     let header = new HttpHeaders().set(
       "Authorization",
@@ -17,6 +20,7 @@ export class EvaluationService {
     });
   }
 
+  //Ajout evaluation de type PROJET
   addEvaluationPrj(object) {
     let header = new HttpHeaders().set(
       "Authorization",
@@ -28,16 +32,19 @@ export class EvaluationService {
     });
   }
 
-  displayEval(id) {
+  //Affichage l'evaluation pour le candidat
+  displayEval() {
     let header = new HttpHeaders().set(
       "Authorization",
       "Bearer " + localStorage.getItem("token")
     );
     // console.log(id);
-    return this.http.get(" http://localhost:9000/evaluation/getEval/68", {
+    return this.http.get(" http://localhost:9000/evaluation/getEval/13", {
       headers: header
     });
   }
+
+  //Affiche tout les Evaluations
   affichageEval() {
     let header = new HttpHeaders().set(
       "Authorization",
@@ -48,6 +55,7 @@ export class EvaluationService {
     });
   }
 
+  //Duplicate evaluation
   DuplicateEval(object) {
     let header = new HttpHeaders().set(
       "Authorization",
@@ -61,6 +69,7 @@ export class EvaluationService {
     );
   }
 
+  //Modifier evaluation
   Save(object) {
     let header = new HttpHeaders().set(
       "Authorization",
@@ -72,11 +81,11 @@ export class EvaluationService {
     });
   }
 
-  // setEvaluation(evaluation: any): void {
-  //   this.evaluationToEdit = evaluation;
-  // }
+  setEvaluation(evaluation: any): void {
+    this.evaluationToEdit = evaluation;
+  }
 
-  // getEvaluation(): any {
-  //   return this.evaluationToEdit;
-  // }
+  getEvaluation(): any {
+    return this.evaluationToEdit;
+  }
 }
