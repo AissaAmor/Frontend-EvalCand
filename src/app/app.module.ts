@@ -65,7 +65,7 @@ import { QcmComponent } from "./components/Evaluation/typeEval/qcm/qcm.component
 
 @NgModule({
   imports: [
-    BrowserModule.withServerTransition({ appId: "now-ui-dashboard-angular" }),
+    BrowserModule,
     BrowserAnimationsModule,
     FormsModule,
     HttpClientModule,

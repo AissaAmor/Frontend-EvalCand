@@ -17,7 +17,15 @@
         <div class="row">
           <div class="col-4"></div>
           <div class="col-6">
-            <button class="btnDash" routerLink="ajouter-Eval">
+            <button
+              mdbBtn
+              color="default"
+              rounded="true"
+              data-toggle="modal"
+              data-target="#basicExample"
+              mdbWavesEffect
+              routerLink="/ajouter-Eval"
+            >
               Créer evaluation
             </button>
           </div>
@@ -25,11 +33,11 @@
       </div>
     </div>
   </div>
-  <div class="row">
+  <div class="row" *ngIf="evaluations">
     <div class="col-md-12">
       <div class="card">
         <div class="card-header">
-          <h4 class="card-title">Evaluation</h4>
+          <h2 class="card-title">Evaluation</h2>
         </div>
         <div class="card-body">
           <div class="row">
@@ -46,7 +54,7 @@
             <div class="col-3 text-primary">{{ evaluation.etat }}</div>
             <div class="col-2 text-primary"></div>
             <div class="col-3 text-primary">
-              <button
+              <!-- <button
                 type="button"
                 mdbBtn
                 color="default"
@@ -57,8 +65,11 @@
                 (click)="DuplicateEval(evaluation)"
               >
                 Duplicate
-              </button>
-              <button
+              </button> -->
+              <i (click)="DuplicateEval(evaluation)" class="material-icons">
+                repeat
+              </i>
+              <!-- <button
                 type="button"
                 mdbBtn
                 color="default"
@@ -69,8 +80,30 @@
                 mdbWavesEffect
               >
                 add
-              </button>
+              </button> -->
+              <i (click)="frame.show()" class="material-icons">
+                add_box
+              </i>
+              <!-- <button
+                type="button"
+                mdbBtn
+                color="default"
+                rounded="true"
+                data-toggle="modal"
+                data-target="#basicExample"
+                (click)="deleteEvaluation(evaluation.id_evaluation)"
+                mdbWavesEffect
+              >
+                Delete
+              </button> -->
+              <i
+                (click)="deleteEvaluation(evaluation.id_evaluation)"
+                class="material-icons"
+              >
+                delete
+              </i>
             </div>
+            <hr />
           </div>
           <!--Modal mdbootstrap  LIST CANDIDATS-->
           <div
@@ -107,7 +140,12 @@
                   <div class="col-2 text-primary">Niveau</div>
                   <div class="col-1 text-primary"></div>
                 </div>
-                <div class="row menu" *ngFor="let cand of allCand">
+                <div
+                  class="row menu"
+                  [formGroup]="form"
+                  (ngSubmit)="submitForm()"
+                  *ngFor="let cand of allCand"
+                >
                   <div class="col-2">{{ cand.nom }}</div>
                   <div class="col-3">{{ cand.prenom }}</div>
                   <div class="col-3">{{ cand.email }}</div>
@@ -117,7 +155,6 @@
                       type="checkbox"
                       (change)="onChange(cand.email, $event.target.checked)"
                     />
-
                     <br />
                   </div>
                   <hr />
@@ -129,6 +166,7 @@
                     color="unique"
                     class="waves-light"
                     mdbWavesEffect
+                    (click)="sendEval()"
                   >
                     Send
                     <mdb-icon far icon="paper-plane" class="ml-1"></mdb-icon>

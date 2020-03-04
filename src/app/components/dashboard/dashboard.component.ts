@@ -47,6 +47,8 @@ export class DashboardComponent implements OnInit {
     });
   }
 
+  // Duplicate All Evaluation
+
   DuplicateEval(evaluation) {
     this.evalservice.DuplicateEval(evaluation).subscribe(data => {
       console.log(data);
@@ -56,12 +58,16 @@ export class DashboardComponent implements OnInit {
     });
   }
 
+  // display all evaluation
+
   getAllEvaluation(): void {
     this.evalservice.affichageEval().subscribe(data => {
       this.evaluations = data;
       console.log(data);
     });
   }
+
+  // checkbox Candidats
 
   onChange(email: string, isChecked: boolean) {
     const emailArray = <FormArray>this.form.controls.candidatEmail;
@@ -72,9 +78,28 @@ export class DashboardComponent implements OnInit {
       let index = emailArray.controls.findIndex(x => x.value == email);
       emailArray.removeAt(index);
     }
+    console.log(emailArray.value);
   }
 
-  position(index) {
-    console.log(index);
+  // Send Evaluation to Candidats
+
+  sendEval() {
+    let listEval = this.form.value.candidatEmail;
+    for (let i = 0; i < listEval.length; i++) {
+      this.evalservice
+        .SendEvalToCandidat({ email: listEval[i] })
+        .subscribe(data => {
+          console.log(data);
+        });
+    }
+  }
+
+  //Delete Evaluation
+
+  deleteEvaluation(id) {
+    console.log(id);
+    this.evalservice.deleteEval(id).subscribe(data => {
+      console.log(data);
+    });
   }
 }
