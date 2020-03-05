@@ -1,0 +1,32 @@
+.btnDash {
+  background-color: #039be5;
+  border: 1px solid white;
+  border-radius: 5%;
+  color: white;
+  padding: 10px;
+  width: 250px;
+  height: 60px;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  font-size: 25px;
+  margin-left: 70px;
+}
+/* .text-primary {
+  color: var(--info) !important;
+} */
+.card-body {
+  font-size: 20px;
+  line-height: 50px;
+}
+.menu {
+  font-size: 17px;
+  margin-top: 10px;
+  margin-left: 10px;
+}
+
+.modal-dialog {
+  width: 800px;
+}
+hr {
+  border: 1px solid gainsboro;
+  width: 97%;
+}
