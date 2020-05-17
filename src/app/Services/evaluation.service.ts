@@ -40,14 +40,14 @@ export class EvaluationService {
     return this.http.get("http://localhost:9000/evaluation/all", {
       headers: header});
   }
-  displayEval(id) {
+  displayEval() {
     let header = new HttpHeaders().set(
       "Authorization",
       "Bearer " + localStorage.getItem("token")
     );
 
     // console.log(id);
-    return this.http.get(" http://localhost:9000/evaluation/getEval/68", {
+    return this.http.get(" http://localhost:9000/evaluation/getEval/15", {
       headers: header
     });
   }
@@ -79,4 +79,14 @@ export class EvaluationService {
   getEvaluation(): any {
     return this.evaluationToEdit;
   }
+  // start(){
+  //   let header = new HttpHeaders().set(
+  //     "Authorization",
+  //     "Bearer " + localStorage.getItem("token")
+  //   );
+  //   return this.http.get("http://localhost:9000/evaluation/getEval/"+id, {
+  //     headers: header});
+  // }
+  
+
 }

@@ -12,5 +12,51 @@ input {
   color: blue;
 }
 input:hover {
-  background-color: #a9e5ef;
+     background-color: #007bff85;
+  
 }
+.mat-raised-button{
+  /* margin-left: 190px; */
+  height: 47px;
+    width: 136px;
+    background-color:     #4099ffed;
+
+}
+
+.mat-fab.mat-accent, .mat-flat-button.mat-accent, .mat-mini-fab.mat-accent, .mat-raised-button.mat-accent {
+
+  color: beige;
+  margin-left: 150px;
+  margin-top: 46px;
+  font-size: 24px;
+}
+.title{
+  color: beige;
+  border: 1px solid #e91e638f;
+  padding: 10px 74px -4px 45px;
+  background-color: #e91e63a6;
+  margin-top: 81px;
+  text-align: center;
+  /* margin-left: 1px; */
+  margin-right: 130px;
+  font-size: 30px;
+}
+.buttonNext{
+  margin-left: 278px;
+  width: 76px;
+ 
+}
+.buttonPrevious{
+  margin-right:238px ;
+  margin-top: -31px;
+    margin-bottom: 83px;
+    
+}
+.buttondisplay{
+  width: 57px;
+  height: 26px;
+ margin-top: -109px;
+      
+ margin-left: 136px;
+}
+    
