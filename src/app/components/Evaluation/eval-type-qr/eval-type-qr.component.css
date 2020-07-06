@@ -40,16 +40,19 @@ input:hover {
   /* margin-left: 1px; */
   margin-right: 130px;
   font-size: 30px;
+  width: 549px;
+
 }
 .buttonNext{
   margin-left: 278px;
   width: 76px;
  
 }
+
 .buttonPrevious{
-  margin-right:238px ;
-  margin-top: -31px;
-    margin-bottom: 83px;
+  margin-right:238px !important;
+  margin-top: -31px  !important;
+    margin-bottom: 83px !important;
     
 }
 .buttondisplay{
@@ -60,3 +63,27 @@ input:hover {
  margin-left: 136px;
 }
     
+example-radio-group {
+  display: flex;
+  flex-direction: column;
+  margin: 15px 0;
+}
+
+.example-radio-button {
+  margin: 5px;
+}
+.btn-primary {
+  background-color: #327ef9;
+  margin-left: 450px;
+}
+ .card-quiz{
+  width: 44% !important;
+  padding: 20px !important;
+  /* margin-top: 46px !important ; */
+}
+.card label{
+  font-size:17px ;
+  font-family: "Impact, Charcoal, sans-serif"!important;
+  font-style: normal;
+  font-weight: 900;
+}

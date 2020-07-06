@@ -2,53 +2,106 @@
   <div class="row">
     <div class="col-4"></div>
     <div class="col-5">
-      <h1 class="title" *ngIf="isStarted">Welcome to the quiz</h1>
-      <!-- <h4>{{ listQR.titre }}</h4> -->
-      <button mat-raised-button color="accent" *ngIf="isStarted" (click)="start()">Start</button>
-      <div class="container">
+      <h3 class="title" *ngIf="isQuestionCardShow">Welcome to the EvalCand &#x263A;</h3>
+      <div class="card">
+        <div class="card-body" *ngIf="isQuestionCardShow">
+          <h5 class="card-title" style="text-align:center">Choose Option &#x263A; </h5>
+          <div class="row justify-content-md-center">
+            <div class="col-sm-12 col-lg-3">
+              <button class="btn btn-block btn-outline-primary cursor-restriction" *ngIf="isQuestionCardShow"
+                (click)="startQUIZ()" style="margin-top: 24px;">
+                Start Quiz
+              </button>
+            </div>
+            <div class="col-sm-12 col-lg-3">
+              <button class="btn btn-block btn-outline-primary cursor-restriction" *ngIf="isQuestionCardShow"
+                style="margin-top: 24px;" (click)="startQR()">
+                Start QR </button>
+            </div>
+            <div class="col-sm-12 col-lg-3">
+              <button class="btn btn-block btn-outline-primary cursor-restriction" *ngIf="isQuestionCardShow"
+                style="margin-top: 24px;" (click)="startProject()">
+                Start Projet </button>
+            </div>
+          </div>
+        </div>
+      </div>
 
-        <div class="Eval" *ngIf="!isStarted">
+                           <!-- /************La debut de  test Qiuz /*******************-->
+     <form [formGroup]="questionForm" (ngSubmit)="onSubmit()">
+    <div class="card" [hidden]="isQuestionCardShow">
+      <div class="card-body card-quiz">
+        <small *ngIf="elapsedTime" style="text-align: center; inline-size: 12px;">Time elapsed:
+          {{elapsedTime | timer:examTime}}</small><br>
+        <label id="example-radio-group-label" *ngIf="tab && tab.length > 0">{{tab[index].question}}</label><br>
+        <br>
 
-          <div class="row" ><br>
-            <!-- <form [formGroup]="qr" > -->
+        <div class="row"><br>
+          <!-- <strong>enonce:</strong> -->
+          <div class="enonce">
+            <p><span class="label label-warning" id="qid"></span>
+              <span id="enonce" >{{tab[index].enonce}} </span> 
+            </p>
+          </div>
 
+        </div>
+
+
+
+                <!-- /******************* test QR/***************** -->
+        <form  #f="ngForm" (ngSubmit)="input( f.value )">
+         <div  *ngIf="!isStarted  &&   !isQuestionCardShow && ishidden" >
+          <label>Enter your response: </label>
+          <input [(ngModel)]="reponse" #uname="ngModel"  name="reponse" type="text" id="inputMDEx" class="form-control" />
+          <ng-container *ngIf="uname.touched && uname.invalid"> </ng-container>
+         </div> 
+        
+         <button class="btn btn-primary " type="submit" value="submit" *ngIf="!isStarted && !displaySubmitButton() "[disabled]="f.invalid"  (click)="next()">Next</button><br>
+     
+        </form>
+
+             <!-- <!  /****************       la suite de QUIZ /******************** -->
+        <mat-radio-group aria-labelledby="example-radio-group-label" class="example-radio-group" required>
+          <mat-radio-button class="example-radio-button" *ngFor="let choice of List" [value]="choice"
+            [checked]="choice==selectedChoice" (change)="radioChange($event.value)">
+            {{choice}}
+          </mat-radio-button>
+          <button class="btn btn-primary" *ngIf="!displaySubmitButton() && isNextShow "  (click)="nxt()"
+            [disabled]="!selectedChoice" >Next
+          </button><br>
+          <button type="button" class="btn btn-primary" *ngIf="displaySubmitButton()  "  (click)="submitTest()">Submit
+          </button>
+        </mat-radio-group>
+      </div>
+    </div>
+  </form>
+             <!-- test QR -->
+      <div class="container" *ngIf="">
+        
+        <div class="Eval" *ngIf="!isStarted  &&   isQuestionCardShow && ishidden" >
+          <div class="row"><br>
             <div class="question">
               <h3><span class="label label-warning" id="qid"></span>
                 <span id="question" >{{tab[index].question}} </span>
-              </h3>
-              <input [(ngModel)]="reponse"  name="reponse" type="text" id="inputMDEx" class="form-control" />
-            </div>
-            <ul>
-              <li>
-                <!-- <div   *ngFor="let control of qr['controls'].reponses['controls']; let i = index;"class="md-form">
                 
-                <label for="inputMDEx"></label>
-              </div> -->
-
-              </li>
-            </ul>
+              </h3>
+              <!-- <p>
+                <mat-form-field appearance="outline">
+                  <mat-label>Outline form field</mat-label>
+                  <input placeholder="your answer"  [(ngModel)]="reponse" name="reponse" type="text" id="inputMDEx" style="    border-color: #008cff;"   >
+                  <mat-icon matSuffix>sentiment_very_satisfied</mat-icon>
+                  <mat-hint>Hint</mat-hint>
+                </mat-form-field>
+              </p> -->
+              
+            </div>
           </div>
         </div>
-        <!-- </form> -->
         <div class="row">
-          <!-- <div class="col-sm-8 col-sm-offset-2">
-                  <div id="result-of-question" class="pulse animated" style="display: none;">
-                      <span id="totalCorrect" class="pull-right"></span>
-                      <table class="table table-hover table-responsive" >
-                          <thead>
-                              <tr>
-                                  <th>Question No.</th>
-                                  <th>Our answer</th>
-                                  <th>Your answer</th>
-                                  <th>Result</th>
-                              </tr>
-                          </thead>
-                          <tbody id="quizResult"></tbody>
-                      </table>
-                  </div>
-              </div> -->
-          <button class="buttonNext" *ngIf="!isStarted" (click)="next()">Next</button><br>
-          <button class="buttonPrevious" *ngIf="!isStarted" (click)="previous(index)">Previous</button><br>
-          <!-- <button class="buttondisplay" *ngIf="!isStarted" (click)="displayEvaluation()">display</button> -->
-
+         
+          <!-- <button  class="buttonPrevious" *ngIf="!isStarted" (click)="previous(index)">Previous</button><br> -->
         </div>
+      </div>
+      
+  </div>
+</div>

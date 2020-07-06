@@ -4,12 +4,7 @@ import {
   MatAutocomplete
 } from "@angular/material/autocomplete";
 import { MatChipInputEvent } from "@angular/material/chips";
-import {
-  FormControl,
-  Validators,
-  FormGroup,
-  FormControlName
-} from "@angular/forms";
+import { FormControl,Validators,FormGroup,FormControlName}from "@angular/forms";
 import { Router, ActivatedRoute } from "@angular/router";
 import { EvaluationService } from '../../../Services/evaluation.service';
 
@@ -26,7 +21,7 @@ export class AjoutEvalComponent implements OnInit {
   evaluationToEdit: any;
   isInitialized: boolean = false;
 
-  constructor(private router: Router,  private evalservice: EvaluationService) {
+  constructor(private router: Router, private evalservice: EvaluationService) {
     this.chosenType = "";
   }
 
@@ -49,11 +44,11 @@ export class AjoutEvalComponent implements OnInit {
     console.log(event);
     this.chosenType = "";
   }
-  Save(evaluation){
+  Save(evaluation) {
     this.evalservice.Save(evaluation).subscribe(data => {
       console.log(data);
-  
-});
+
+    });
   }
 }
 

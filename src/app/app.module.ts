@@ -32,6 +32,7 @@ import {
   MatTooltipModule,
   MatTableModule,
   MatPaginatorModule
+
 } from "@angular/material";
 
 import { AppComponent } from "./app.component";
@@ -56,6 +57,8 @@ import { SendEmailComponent } from "./components/Password-reset-Email/send-email
 import { ForgetPasswordComponent } from "./components/Password-reset-Email/forget-password/forget-password.component";
 import { EvalTypeQRComponent } from "./components/Evaluation/eval-type-qr/eval-type-qr.component";
 import { EditEvalComponent } from "./edit-eval/edit-eval.component";
+import { TimerPipe } from './pipe/timer.component';
+
 
 @NgModule({
   imports: [
@@ -113,7 +116,10 @@ import { EditEvalComponent } from "./edit-eval/edit-eval.component";
     SendEmailComponent,
     ForgetPasswordComponent,
     EvalTypeQRComponent,
-    EditEvalComponent
+    EditEvalComponent,
+    TimerPipe,
+   
+    
   ],
   providers: [MatDatepickerModule],
   bootstrap: [AppComponent],
